@@ -1,11 +1,15 @@
 import { Navbar } from "@/components";
 
-export default function GeneralLayout( {children}: {children: React.ReactNode;}) {
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function GeneralLayout({ children }: Props) {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center p-24">
-        <h1>Hello Root Layout General</h1>
+
+      <main>
         {children}
       </main>
     </>

@@ -1,9 +1,14 @@
 @reference "../../app/globals.css";
 
 .link {
-    @apply hover:underline hover:text-blue-400 mr-2 transition-all;
+    @apply relative text-gray-700 font-medium hover:text-green-700 transition-colors;
 }
 
 .active-link {
-    @apply text-blue-500;
+    @apply text-green-700 font-semibold;
+}
+
+.active-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-2 h-0.5 w-full bg-green-700 rounded-full;
 }
