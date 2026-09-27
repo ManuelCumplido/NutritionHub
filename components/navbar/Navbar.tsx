@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -14,26 +15,37 @@ const navItems = [
 ];
 
 export const Navbar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className="border-b border-gray-200 bg-white">
 
       {/* Navbar principal */}
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-bold text-gray-900"
+          className="flex items-center gap-2"
+          aria-label="Ir al inicio de NutritionHub"
         >
-          Nutrition<span className="text-green-700">Hub</span>
+          <Image
+            src="/images/logo-icon.png"
+            alt=""
+            width={44}
+            height={44}
+            priority
+            className="h-11 w-11"
+          />
+
+          <span className="text-2xl font-bold tracking-tight text-gray-900">
+            Nutrition<span className="text-green-700">Hub</span>
+          </span>
         </Link>
 
         {/* Navegación desktop */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden items-center gap-8 lg:flex">
 
           {navItems.map((item) => (
             <ActiveLink
@@ -45,7 +57,7 @@ export const Navbar = () => {
 
           <Link
             href="/contacto"
-            className="rounded-lg bg-green-700 px-5 py-2.5 text-white font-semibold hover:bg-green-800 transition-colors"
+            className="rounded-lg bg-green-700 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-green-800"
           >
             Agenda tu consulta
           </Link>
@@ -56,8 +68,9 @@ export const Navbar = () => {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-gray-700 hover:text-green-700 transition-colors"
+          className="text-gray-700 transition-colors hover:text-green-700 lg:hidden"
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isOpen}
         >
           {isOpen ? (
             <IoCloseOutline size={30} />
@@ -70,12 +83,11 @@ export const Navbar = () => {
 
       {/* Menú mobile */}
       {isOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+        <div className="border-t border-gray-200 bg-white lg:hidden">
 
-          <div className="px-6 py-6 flex flex-col gap-5">
+          <div className="flex flex-col gap-5 px-6 py-6">
 
             {navItems.map((item) => {
-
               const isActive = pathname === item.path;
 
               return (
@@ -85,9 +97,10 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`
                     relative w-fit font-medium transition-colors
-                    ${isActive
-                      ? "text-green-700 font-semibold after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-full after:bg-green-700 after:rounded-full"
-                      : "text-gray-700 hover:text-green-700"
+                    ${
+                      isActive
+                        ? "font-semibold text-green-700 after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-full after:rounded-full after:bg-green-700"
+                        : "text-gray-700 hover:text-green-700"
                     }
                   `}
                 >
@@ -100,7 +113,7 @@ export const Navbar = () => {
             <Link
               href="/contacto"
               onClick={() => setIsOpen(false)}
-              className="mt-2 text-center rounded-lg bg-green-700 px-5 py-3 text-white font-semibold hover:bg-green-800 transition-colors"
+              className="mt-2 rounded-lg bg-green-700 px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-green-800"
             >
               Agenda tu consulta
             </Link>
