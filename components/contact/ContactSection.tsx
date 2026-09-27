@@ -5,6 +5,7 @@ import {
     IoTimeOutline,
     IoCalendarOutline,
     IoArrowForwardOutline,
+    IoLocationOutline,
 } from "react-icons/io5";
 
 export const ContactSection = () => {
@@ -27,8 +28,6 @@ Me interesa: ${service}.
 ${message}
     `.trim();
 
-        // Número ficticio para el demo
-        //const phoneNumber = "5213312345678";
         const phoneNumber = "523322281179";
 
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -42,6 +41,7 @@ ${message}
         <section className="bg-stone-50 py-20 lg:py-24">
             <div className="mx-auto max-w-7xl px-6">
 
+                {/* Contacto + Formulario */}
                 <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
 
                     {/* Información */}
@@ -110,6 +110,27 @@ ${message}
 
                                     <p className="font-medium text-gray-900">
                                         Normalmente dentro de 24 horas
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Ubicación */}
+                            <div className="flex items-center gap-4">
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700">
+                                    <IoLocationOutline size={21} />
+                                </div>
+
+                                <div>
+                                    <p className="text-sm text-gray-500">
+                                        Ubicación
+                                    </p>
+
+                                    <p className="font-medium text-gray-900">
+                                        Providencia, Guadalajara, Jalisco
+                                    </p>
+
+                                    <p className="mt-1 text-xs text-gray-400">
+                                        Ubicación de demostración
                                     </p>
                                 </div>
                             </div>
@@ -273,7 +294,41 @@ ${message}
                             </button>
 
                         </form>
+                    </div>
 
+                </div>
+
+                {/* Mapa */}
+                <div className="mt-20">
+
+                    <div className="mx-auto mb-8 max-w-2xl text-center">
+                        <span className="font-semibold text-green-700">
+                            Ubicación
+                        </span>
+
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
+                            Encuéntranos en Guadalajara
+                        </h2>
+
+                        <p className="mt-4 text-gray-600">
+                            Providencia, Guadalajara, Jalisco
+                        </p>
+
+                        <p className="mt-1 text-sm text-gray-400">
+                            Ubicación de demostración
+                        </p>
+                    </div>
+
+                    <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+                        <iframe
+                            src="https://www.google.com/maps?q=Providencia%2C%20Guadalajara%2C%20Jalisco%2C%20Mexico&output=embed"
+                            width="100%"
+                            height="420"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Mapa de Providencia, Guadalajara"
+                            className="block w-full"
+                        />
                     </div>
 
                 </div>
