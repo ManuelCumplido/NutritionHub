@@ -1,24 +1,35 @@
 import type { Metadata } from "next";
+import { PricingHero, PricingOptions } from "@/components";
 
 export const metadata: Metadata = {
-    title: "Precios y planes | NutritionHub",
+  title: "Precios y consultas",
+
+  description:
+    "Conoce las opciones de consulta nutricional de NutritionHub y elige el acompañamiento que mejor se adapte a tus objetivos.",
+
+  keywords: [
+    "precio consulta nutricional",
+    "consulta nutricional",
+    "consulta inicial nutrición",
+    "seguimiento nutricional",
+    "paquete nutricional",
+    "nutrición personalizada",
+    "NutritionHub",
+  ],
+
+  openGraph: {
+    title: "Precios y consultas | NutritionHub",
     description:
-        "Consulta los planes y precios de NutritionHub para profesionales de la salud que buscan gestionar pacientes, citas y servicios.",
-    keywords: [
-      "precios NutritionHub",
-      "planes NutritionHub",
-      "software para nutriólogos precio",
-      "software para podólogos precio",
-      "sistema para gestión de pacientes",
-      "plataforma para consultorios",
-    ]
+      "Conoce las opciones de consulta nutricional de NutritionHub y elige el acompañamiento que mejor se adapte a tus objetivos.",
+  },
 };
 
 export default function PricingPage() {
 
     return (
         <>
-            <span className="text-7xl">Pricing Page</span>
+            <PricingHero />
+            <PricingOptions />
         </>
     );
 }

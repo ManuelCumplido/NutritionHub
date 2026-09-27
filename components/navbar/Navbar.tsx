@@ -9,7 +9,7 @@ import { ActiveLink } from "../active-link/ActiveLink";
 const navItems = [
   { path: "/", text: "Inicio" },
   { path: "/acerca-de", text: "Sobre mí" },
-  { path: "/#servicios", text: "Servicios" },
+  { path: "/servicios", text: "Servicios" },
   { path: "/precios", text: "Precios" },
 ];
 

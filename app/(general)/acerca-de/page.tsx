@@ -1,24 +1,36 @@
 import type { Metadata } from "next";
+import { AboutHero, Approach, WorkingMethod, AboutCTA } from "@/components";
 
 export const metadata: Metadata = {
-    title: 'Acerca de NutritionHub',
+  title: "Sobre mí",
+
+  description:
+    "Conoce el enfoque de NutritionHub y una forma de acompañamiento nutricional personalizada, práctica y sostenible.",
+
+  keywords: [
+    "nutrióloga",
+    "nutrición personalizada",
+    "acompañamiento nutricional",
+    "hábitos saludables",
+    "alimentación saludable",
+    "NutritionHub",
+  ],
+
+  openGraph: {
+    title: "Sobre mí | NutritionHub",
     description:
-        'Conoce NutritionHub, una plataforma para conectar profesionales de la salud con pacientes.',
-    keywords: [
-      "NutritionHub",
-      "plataforma para profesionales de la salud",
-      "software para nutriólogos",
-      "software para podólogos",
-      "gestión de pacientes",
-      "profesionales de la salud Guadalajara",
-    ]
+      "Conoce el enfoque de NutritionHub y una forma de acompañamiento nutricional personalizada, práctica y sostenible.",
+  },
 };
 
 export default function AboutPage() {
 
     return (
         <>
-            <span className="text-7xl">About Page</span>
+            <AboutHero />
+            <Approach />
+            <WorkingMethod />
+            <AboutCTA />
         </>
     );
 }
