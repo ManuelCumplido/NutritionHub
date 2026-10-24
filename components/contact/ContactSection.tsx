@@ -28,7 +28,7 @@ Me interesa: ${service}.
 ${message}
     `.trim();
 
-        const phoneNumber = "523322281179";
+        const phoneNumber = "523311224014";
 
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
             whatsappMessage
